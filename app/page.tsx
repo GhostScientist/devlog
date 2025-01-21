@@ -110,6 +110,24 @@ export default function Home() {
       });
   }, []);
 
+  const blogPosts = [
+    {
+      title: 'First Blog Post',
+      date: '2023-01-01',
+      metadata: 'Some metadata',
+    },
+    {
+      title: 'Second Blog Post',
+      date: '2023-02-01',
+      metadata: 'Some more metadata',
+    },
+    {
+      title: 'Third Blog Post',
+      date: '2023-03-01',
+      metadata: 'Even more metadata',
+    },
+  ];
+
   return (
     <div className="container mx-auto p-4">
       <Head>
@@ -133,6 +151,20 @@ export default function Home() {
           </>
         )}
       </main>
+
+      <section className="mt-8">
+        <h2 className="text-2xl font-bold">Recent Blog Posts</h2>
+        <ul>
+          {blogPosts.map((post, index) => (
+            <li key={index} className="mb-4">
+              <h3 className="text-xl font-semibold">{post.title}</h3>
+              <p className="text-gray-600">{post.date}</p>
+              <p>{post.metadata}</p>
+              <Button>Read</Button>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* Rest of the code */}
     </div>
